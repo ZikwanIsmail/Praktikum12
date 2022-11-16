@@ -1,0 +1,87 @@
+
+package praktikum12_zikwan;
+import java.util.ArrayList;
+
+public class Praktikum12_Zikwan {
+
+    public static void main (String[] args) {
+ArrayList<Integer> nilai = new ArrayList<Integer>();
+nilai.add(70);
+nilai.add(75);
+nilai.add(80);
+System.out.println(nilai);
+
+Mahasiswa mhs1 = new Mahasiswa("ZIKWAN","2117051051",nilai);
+mhs1.setNilai(nilai);
+System.out.println("Nilai Rata Rata : "+ mhs1.nilaiRataRata());
+}
+}
+//try {
+//int[] num = {1, 2, 3};
+//System.out.println(num[10]);
+//} catch (Exception e) {
+//System.out.println("Terjadi error");
+//} finally {
+//System.out.println("Blok kode finally");
+//}
+//   static void checkAge(int age) {
+//if (age < 18) {
+//throw new ArithmeticException("Akses ditolak");
+//} else {
+//System.out.println("Akses diberikan");
+//}
+//   }
+//checkAge(15);
+//ArrayList<String> cars = new ArrayList<String>();
+//cars.add("Volvo");
+//cars.add("BMW");
+//cars.add("Ford");
+//cars.add("Mazda");
+//System.out.println(cars);
+//
+package praktikum12_zikwan;
+import java.util.ArrayList;
+public class Mahasiswa {
+    private String nama;
+    private String npm;
+    private ArrayList<Integer> nilai = new ArrayList<Integer>();
+    
+    public Mahasiswa(String nama,String npm, ArrayList<Integer>nilai){
+        this.nama = nama;
+        this.npm = npm;
+        this.nilai = nilai;
+    }
+    public String getNama(){
+        return nama;
+    }
+    public void setNama(String nama){
+        this.nama = nama;
+    }
+    public String getNpm(){
+        return npm;
+    }
+    public void setNpm(String npm){
+        this.npm = npm;
+    }
+    public ArrayList<Integer> getNilai(){
+        return nilai;
+    }
+    public void setNilai(ArrayList<Integer>nilai){
+        if (nilai.size()==0){
+            throw new SecurityException("Array tidak boleh Kosong");
+        }else{
+        this.nilai=nilai;
+    }
+   }
+    public double nilaiRataRata(){
+        int sum = 0;
+        for (int i= 0;i<this.nilai.size();i++){
+            sum += this.nilai.get(i);
+        }
+        try {
+        return sum/this.nilai.size();
+    }catch(Exception e){
+    return 0;
+        }   
+    }
+}
